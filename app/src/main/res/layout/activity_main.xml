@@ -1,33 +1,211 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:padding="32dp">
+    android:background="#F0F2F5">
 
-    <TextView
-        android:id="@+id/titleText"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Floating Permission Test"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="24dp" />
+        android:orientation="vertical"
+        android:padding="20dp">
 
-    <TextView
-        android:id="@+id/statusText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Checking permission..."
-        android:textSize="16sp"
-        android:layout_marginBottom="32dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Floating Button"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:textColor="#1A1A2E"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="4dp" />
 
-    <Button
-        android:id="@+id/grantButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Grant Overlay Permission"
-        android:paddingHorizontal="24dp" />
+        <TextView
+            android:id="@+id/statusText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Checking permission..."
+            android:textSize="13sp"
+            android:textColor="#888888"
+            android:layout_marginBottom="20dp" />
 
-</LinearLayout>
+        <Button
+            android:id="@+id/grantButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Grant Overlay Permission"
+            android:visibility="gone"
+            android:layout_marginBottom="16dp" />
+
+        <LinearLayout
+            android:id="@+id/guiCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="@drawable/card_bg"
+            android:paddingHorizontal="18dp"
+            android:paddingVertical="16dp"
+            android:layout_marginBottom="14dp"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Show GUI"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#1A1A2E" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Show the draggable floating toggle button"
+                    android:textSize="12sp"
+                    android:textColor="#888888" />
+
+            </LinearLayout>
+
+            <Switch
+                android:id="@+id/showGuiSwitch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/codeCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_bg"
+            android:paddingHorizontal="18dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="14dp"
+            android:layout_marginBottom="14dp"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Script Source"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#1A1A2E"
+                android:layout_marginBottom="14dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Load from URL"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="#444444"
+                android:layout_marginBottom="6dp" />
+
+            <EditText
+                android:id="@+id/urlInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/code_bg"
+                android:fontFamily="monospace"
+                android:textSize="12sp"
+                android:textColor="#E0E0E0"
+                android:hint="https://raw.githubusercontent.com/you/repo/main/script.js"
+                android:hintTextColor="#555555"
+                android:padding="10dp"
+                android:inputType="textUri"
+                android:singleLine="true"
+                android:layout_marginBottom="14dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="— or paste code directly —"
+                android:textSize="11sp"
+                android:textColor="#888888"
+                android:gravity="center"
+                android:layout_marginBottom="10dp" />
+
+            <EditText
+                android:id="@+id/codeInput"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:background="@drawable/code_bg"
+                android:fontFamily="monospace"
+                android:textSize="13sp"
+                android:textColor="#E0E0E0"
+                android:hint="// Example:&#10;Android.showFPS(20, 60, &quot;#00FF88&quot;);"
+                android:hintTextColor="#555555"
+                android:padding="12dp"
+                android:gravity="top|start"
+                android:inputType="textMultiLine|textNoSuggestions"
+                android:scrollbars="vertical"
+                android:layout_marginBottom="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="If a URL is set, it loads from the URL. Otherwise uses pasted code."
+                android:textSize="11sp"
+                android:textColor="#AAAAAA"
+                android:layout_marginBottom="12dp" />
+
+            <Button
+                android:id="@+id/applyButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Apply"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:id="@+id/savedLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="12sp"
+                android:textColor="#4CAF50"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/code_bg"
+            android:padding="14dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Available functions:"
+                android:textColor="#888888"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:fontFamily="monospace"
+                android:layout_marginBottom="6dp" />
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="#00FF88" android:textSize="11sp" android:fontFamily="monospace" android:text="Android.showFPS(x, y, color)" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="#AAAAAA" android:textSize="10sp" android:fontFamily="monospace" android:text="  Live FPS counter overlay" android:layout_marginBottom="5dp" />
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="#00FF88" android:textSize="11sp" android:fontFamily="monospace" android:text="Android.showText(text, x, y, color)" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="#AAAAAA" android:textSize="10sp" android:fontFamily="monospace" android:text="  Custom text overlay on screen" android:layout_marginBottom="5dp" />
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="#00FF88" android:textSize="11sp" android:fontFamily="monospace" android:text="Android.hideOverlay()" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="#AAAAAA" android:textSize="10sp" android:fontFamily="monospace" android:text="  Hides the overlay" android:layout_marginBottom="5dp" />
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="#00FF88" android:textSize="11sp" android:fontFamily="monospace" android:text="Android.toast(msg)  /  Android.alert(msg)" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="#AAAAAA" android:textSize="10sp" android:fontFamily="monospace" android:text="  Show a popup message" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
