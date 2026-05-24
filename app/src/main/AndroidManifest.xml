@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.google.com/apk/res/android"
-    package="com.example.testapp">
+<manifest xmlns:android="http://schemas.google.com/apk/res/android">
 
-    <!-- Permissions (Optional: Add if your app needs internet) -->
+    <!-- Permissions -->
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -13,7 +12,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar">
         
-        <!-- This opens your MainActivity when the app starts -->
         <activity
             android:name=".MainActivity"
             android:exported="true">
